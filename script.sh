@@ -4,12 +4,12 @@ set -e
 #Make script aware of its location
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
-source $SCRIPTPATH/config/variables.cfg
-source $SCRIPTPATH/config/functions.cfg
-source $SCRIPTPATH/config/menu_functions.cfg
+source "$SCRIPTPATH"/config/variables.cfg
+source "$SCRIPTPATH"/config/functions.cfg
+source "$SCRIPTPATH"/config/menu_functions.cfg
 
 #Check if there are newer versions of the scripts available
-cd $SCRIPTPATH
+cd "$SCRIPTPATH"
 CURRENT_SCRIPTS_COMMIT=$(git show | grep  -m 1 commit | awk '{print $2}')
 
 if [ "$LATEST_SCRIPTS_COMMIT" != "$CURRENT_SCRIPTS_COMMIT" ]; then
@@ -129,7 +129,7 @@ if [ $# -eq 0 ]
 
   'quit')
     echo -e
-    echo -e "${GREEN}---> Exiting scripts menu...${NC}"
+    echo -e "$GREEN---> Exiting scripts menu...$NC"
     echo -e
     break
     ;;
